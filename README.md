@@ -245,8 +245,8 @@ function getVideoInfoSuccess(info) {
         duration: 3.541, // duration in seconds
         size: 6830126, // size of the video in bytes
         bitrate: 15429777 // bitrate of the video in bits per second,
-        videoMime: 'video/3gpp' // (android only) MIME type of the video,
-        audioMime: 'audio/mp4a-latm' // (android only), MIME type of the audio track in video
+        videoMediaType: 'video/3gpp' // Media type of the video, android example: 'video/3gpp', ios example: 'avc1',
+        audioMediaType: 'audio/mp4a-latm' // Media type of the audio track in video, android example: 'audio/mp4a-latm', ios example: 'aac',
     }
 }
 ```

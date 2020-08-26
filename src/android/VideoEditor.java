@@ -404,14 +404,14 @@ public class VideoEditor extends CordovaPlugin {
      * RESPONSE
      * ========
      *
-     * width         - width of the video
-     * height        - height of the video
-     * orientation   - orientation of the video
-     * duration      - duration of the video (in seconds)
-     * size          - size of the video (in bytes)
-     * bitrate       - bitrate of the video (in bits per second)
-     * videoMime     - MIME type of the video
-     * audioMime     - MIME type of the audio track in video
+     * width              - width of the video
+     * height             - height of the video
+     * orientation        - orientation of the video
+     * duration           - duration of the video (in seconds)
+     * size               - size of the video (in bytes)
+     * bitrate            - bitrate of the video (in bits per second)
+     * videoMediaType     - Media type of the video
+     * audioMediaType     - Media type of the audio track in video
      *
      * @param args arguments
      */
@@ -461,8 +461,8 @@ public class VideoEditor extends CordovaPlugin {
         double duration = Double.parseDouble(mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION)) / 1000.0;
         long bitrate = Long.parseLong(mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_BITRATE));
 
-        String videoMime = null;
-        String audioMime = null;
+        String videoMediaType = null;
+        String audioMediaType = null;
         try {
             final MediaExtractor mExtractor = new MediaExtractor();
             final FileInputStream fin = new FileInputStream(inFile);
@@ -470,8 +470,8 @@ public class VideoEditor extends CordovaPlugin {
             MediaExtractorUtils.TrackResult trackResult = MediaExtractorUtils.getFirstVideoAndAudioTrack(mExtractor);
 
             // get types
-            videoMime = trackResult.mVideoTrackMime;
-            audioMime = trackResult.mAudioTrackMime;
+            videoMediaType = trackResult.mVideoTrackMime;
+            audioMediaType = trackResult.mAudioTrackMime;
 
             // release resources
             mExtractor.release();
@@ -489,8 +489,8 @@ public class VideoEditor extends CordovaPlugin {
         response.put("duration", duration);
         response.put("size", inFile.length());
         response.put("bitrate", bitrate);
-        response.put("videoMime", videoMime);
-        response.put("audioMime", audioMime);
+        response.put("videoMediaType", videoMediaType);
+        response.put("audioMediaType", audioMediaType);
 
         callback.success(response);
     }
