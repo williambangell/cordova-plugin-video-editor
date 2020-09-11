@@ -25,7 +25,6 @@
  *
  * fileUri              - path to input video
  * outputFileName       - output file name
- * quality              - transcode quality
  * outputFileType       - output file type
  * saveToLibrary        - save to gallery
  * maintainAspectRatio  - make the output aspect ratio match the input video
