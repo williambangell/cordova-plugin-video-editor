@@ -30,8 +30,6 @@ import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.provider.OpenableColumns;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.content.FileProvider;
 
 import android.util.Log;
@@ -537,7 +535,7 @@ public class FileUtils {
         return Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
     }
 
-    public static File getDocumentCacheDir(@NonNull Context context) {
+    public static File getDocumentCacheDir( Context context) {
         File dir = new File(context.getCacheDir(), DOCUMENTS_DIR);
         if (!dir.exists()) {
             dir.mkdirs();
@@ -557,8 +555,7 @@ public class FileUtils {
         }
     }
 
-    @Nullable
-    public static File generateFileName(@Nullable String name, File directory) {
+    public static File generateFileName(String name, File directory) {
         if (name == null) {
             return null;
         }
@@ -706,7 +703,7 @@ public class FileUtils {
         return File.createTempFile(fileName, ".jpg", storageDir);
     }
 
-    public static String getFileName(@NonNull Context context, Uri uri) {
+    public static String getFileName(Context context, Uri uri) {
         String mimeType = context.getContentResolver().getType(uri);
         String filename = null;
 

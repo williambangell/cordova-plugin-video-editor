@@ -32,8 +32,6 @@ import android.util.Log;
 import net.ypresto.androidtranscoder.MediaTranscoder;
 import net.ypresto.androidtranscoder.utils.MediaExtractorUtils;
 
-import javax.annotation.Nullable;
-
 /**
  * VideoEditor plugin for Android
  * Created by Ross Martin 2-2-15
@@ -479,8 +477,7 @@ public class VideoEditor extends CordovaPlugin {
      * @param url the url to read the data
      * @return results of the reading
      */
-    @Nullable
-    private ReadDataResult readDataFrom(@Nullable String url) throws IOException {
+    private ReadDataResult readDataFrom(String url) throws IOException {
         if (!FileUtils.isLocal(url)) {
             final String msg = "The provided url is null or not local: " + url;
             Log.d(TAG, msg);
@@ -513,7 +510,6 @@ public class VideoEditor extends CordovaPlugin {
          * Returns file descriptor based on the OpenForReadResult
          * @return FileDescriptor for the given result
          */
-        @Nullable
         public FileDescriptor getFD() throws IOException {
             if (this.fileDescriptor != null) {
                 return this.fileDescriptor;
