@@ -6,6 +6,7 @@ repositories{
 
 dependencies {
     implementation 'com.github.AlexMiniApps:android-transcoder:56f5ec8821'
+    compile group: 'com.squareup.okhttp3', name: 'okhttp', version: '4.9.0'
 }
 
 android {
